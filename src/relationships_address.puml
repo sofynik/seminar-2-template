@@ -1,12 +1,16 @@
-/'
-Источник требований: README.md
+@startuml relationships_address
+hide circle
+left to right direction
 
-Адреса
+entity "Страна" as country
+entity "Город" as city <<weak>>
+entity "Улица" as street <<weak>>
+entity "Дом" as house <<weak>>
+entity "Квартира" as flat <<weak>>
 
-Нарисуйте E/R-диаграммы с указанием кратностей связей. Используйте только сущности, указанные в условиях. Атрибуты не добавляйте.
+country ||--o{ city
+city ||--o{ street
+street ||--o{ house
+house ||--o{ flat
 
-- Квартира находится в одном доме.
-- Дом расположен на одной улице.
-- Улица находится в одном городе.
-- Город находится в одной стране.
-'/
+@enduml
